@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Login</title>
+  <!-- <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+  <script src='main.js'></script> -->
+</head>
+<body>
+  <form>
+    <div>
+      <label for="login">Login</label>
+      <input name="login" id="login">
+    </div>
+    <div>
+      <label for="password">Senha</label>
+      <input name="password" id="password">
+    </div>
+    <button class="bt-entrar">Entrar</button>
+  </form>
+
+  <script>
+    const form = document.querySelector("form")
+    const btEntrar = form.querySelector("button.bt-entrar")
+
+    form.addEventListener("submit", async ev => {
+      ev.preventDefault()
+      btEntrar.setAttribute("disabled", true)
+      const response = await fetch(`/api/login/${form['login'].value}/${form['password'].value}`)
+      //const data = await response.json() 
+      if(response.status != 200) {
+        alert("ERRO")
+        btEntrar.removeAttribute("disabled")
+        return
+      }      
+
+      alert("AEEEEEE")
+      btEntrar.removeAttribute("disabled")
+    })
+  </script>
+</body>
+</html>
