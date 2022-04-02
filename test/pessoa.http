@@ -10,15 +10,22 @@ POST http://localhost:4000/api/pessoa HTTP/1.1
 content-type: application/json
 
 { 
-  "nome": "Uanderson",
-  "sobrenome": "Coutinho",
+  "nome": "Gabriel",
+  "sobrenome": "Bianchessi",
   "data-nasc": "1997-09-13"
 }
 
 ###
 
-PUT http://localhost:4000/api/pessoa HTTP/1.1
+PUT http://localhost:4000/api/pessoa/1 HTTP/1.1
+content-type: application/json
+
+{ 
+  "nome": "Gabriel",
+  "sobrenome": "Bianchessi",
+  "data-nasc": "2004-10-21"
+}
 
 ### 
 
-DELETE http://localhost:4000/api/pessoa HTTP/1.1
+DELETE http://localhost:4000/api/pessoa/1 HTTP/1.1
